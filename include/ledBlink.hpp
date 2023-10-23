@@ -5,6 +5,11 @@ bool ioBlink = false;
 unsigned long milOld;
 int rndTemp = 0;
 
+//-------------------------------------------------------
+// Pestañeo para alarma tiemopo variable
+//-------------------------------------------------------
+
+
 void blinkSingle(int speed, int _pin){
 
 if((milOld + speed) < millis()){
@@ -56,14 +61,26 @@ void blinkRandomSingle(int minTime, int maxTime, int _pin){
     }
 }
 // -------------------------------------------------------------------
-// On un Led
+// On un Led/Relay/Actuador
 // -------------------------------------------------------------------
 void setOnSingle(int _pin){
     digitalWrite(_pin, HIGH);
 }
 // -------------------------------------------------------------------
-// Off un Led
+// Off un Led/Relay/Actuador
 // -------------------------------------------------------------------
 void setOffSingle(int _pin){
     digitalWrite(_pin, LOW);
 }
+
+// -------------------------------------------------------------------
+// On/Off un led/Relay/Actuador segun Estados.
+// -------------------------------------------------------------------
+void setOnOffSingle(int _pin, bool status){
+    if(status){
+        digitalWrite(_pin, HIGH);
+    }else{
+        digitalWrite(_pin, LOW);
+
+    }
+   }

@@ -10,6 +10,7 @@
 #include "settingsRead.hpp"
 #include "settingsSave.hpp"
 #include "esp32_wifi.hpp"
+#include "esp32_mqtt.hpp"
 
 // -------------------------------------------------------------------
 // Setup
@@ -28,6 +29,12 @@ void setup()  {
         log(F("Error: Falló la inicialización del SPIFFS"));
         while (true);
     }
+    // Lee los estados de los Relays
+    settingsReadRelays();
+    // Paso estados a los pines de los Relays
+    setOnOffSingle(RELAY1,Relay01_status);
+    setOnOffSingle(RELAY2,Relay02_status);
+    
     // Lee la Configuración WiFi
     settingsReadWifi();
     // Configuracion WIFI
@@ -35,8 +42,10 @@ void setup()  {
     delay(1000);
     // Setup del WiFI
     wifi_setup(); 
+    //Lee la configuración MQTT
+    settingsReadMQTT();
 
-      }
+  }
 
  
 
@@ -50,9 +59,38 @@ void loop() {
     // -------------------------------------------------------------------
     if (wifi_mode == WIFI_STA){
         wifiLoop();
+         
     }else if (wifi_mode == WIFI_AP){
         wifiAPLoop();
-    } 
-  
+    }
+
+
+     // -------------------------------------------------------------------
+    // MQTT
+    // -------------------------------------------------------------------
+    //FIXME: ARREGLAR ERROR, ES SOLAMENTE PARA PROBAR LA HERRAMIENTA
+    if ((WiFi.status() == WL_CONNECTED) && (wifi_mode == WIFI_STA)){
+        if(mqtt_server != 0){
+            mqttLoop();
+            if (mqttclient.connected()){
+                if (millis() - lastMsg > mqtt_time){
+                    lastMsg = millis();
+                    mqtt_publish();
+                }
+            }      
+        }
+    }
+
+
 }
+
+       
+
+ 
+
+ 
+
+ 
+  
+
 
