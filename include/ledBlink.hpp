@@ -1,3 +1,10 @@
+/*
+ * -------------------------------------------------------------------
+ * AdminESP - ElectronicIOT 2021
+ * Sitio WEB: https://electroniciot.com
+ * Correo: info@electroniciot.com
+ * -------------------------------------------------------------------
+ */
 
 #include <Arduino.h>
 
@@ -5,14 +12,11 @@ bool ioBlink = false;
 unsigned long milOld;
 int rndTemp = 0;
 
-//-------------------------------------------------------
-// Pestañeo para alarma tiemopo variable
-//-------------------------------------------------------
-
-
+// -------------------------------------------------------------------
+// Simple blinking function - Pestañeo para Alarmas tiempo variable
+// -------------------------------------------------------------------
 void blinkSingle(int speed, int _pin){
-
-if((milOld + speed) < millis()){
+    if((milOld + speed) < millis()){
         milOld = millis();
         if(ioBlink == false){
             digitalWrite(_pin,HIGH);
@@ -64,7 +68,7 @@ void blinkRandomSingle(int minTime, int maxTime, int _pin){
 // On un Led/Relay/Actuador
 // -------------------------------------------------------------------
 void setOnSingle(int _pin){
-    digitalWrite(_pin, HIGH);
+    digitalWrite(_pin, HIGH);       
 }
 // -------------------------------------------------------------------
 // Off un Led/Relay/Actuador
@@ -72,15 +76,13 @@ void setOnSingle(int _pin){
 void setOffSingle(int _pin){
     digitalWrite(_pin, LOW);
 }
-
 // -------------------------------------------------------------------
-// On/Off un led/Relay/Actuador segun Estados.
+// On/Off un Led/Relay/Actuador segun Estados
 // -------------------------------------------------------------------
 void setOnOffSingle(int _pin, bool status){
     if(status){
-        digitalWrite(_pin, HIGH);
+        digitalWrite(_pin, HIGH); 
     }else{
         digitalWrite(_pin, LOW);
-
-    }
-   }
+    }          
+}

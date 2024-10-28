@@ -1,35 +1,35 @@
 ﻿<!DOCTYPE html>
- <html lang="es"> 
+<html lang="es">
 <!-- BEGIN HEAD-->
-<head>
-   
-     <meta charset="UTF-8" />
-    <title>AdminTools | ESP32</title>
-     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="Electrónica" name="author" />
-    <!--Favicon Icon -->
-    <link rel="icon" href="esp32.gif" type="image/x-icon">
-    <link rel="stylesheet" href="bootstrap.css" />
-    <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="theme.css" />
-    <link rel="stylesheet" href="MoneAdmin.css" />
-    <link rel="stylesheet" href="font-awesome.css" />
-    <link rel="stylesheet" href="bootstrap-switch.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <!--END GLOBAL STYLES -->
 
+<head>
+    <meta charset="UTF-8" />
+    <title>AdminTools | ESP32</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="ElectronicIOT" name="author" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="www/esp32.png" type="image/x-icon">
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="www/bootstrap.css" />
+    <link rel="stylesheet" href="www/main.css" />
+    <link rel="stylesheet" href="www/theme.css" />
+    <link rel="stylesheet" href="www/MoneAdmin.css" />
+    <link rel="stylesheet" href="www/font-awesome.css" />
+    <link rel="stylesheet" href="www/bootstrap-switch.css" />
+    <link rel="stylesheet" href="www/styles.css" />
+    <!--END GLOBAL STYLES -->
     <!-- PAGE LEVEL STYLES -->
-    <link href="layout2.css" rel="stylesheet" />
+    <link href="www/layout2.css" rel="stylesheet" />
     <!-- END PAGE LEVEL  STYLES -->
-      
 </head>
-    <!-- END  HEAD-->
-    <!-- BEGIN BODY-->
-<body class="padTop53 " >
-     <!-- MAIN WRAPPER -->
+<!-- END  HEAD-->
+<!-- BEGIN BODY-->
+
+<body class="padTop53 ">
+    <!-- MAIN WRAPPER -->
     <div id="wrap">
-         <!-- HEADER SECTION -->
+        <!-- HEADER SECTION -->
         <div id="top">
             <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
                 <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
@@ -37,24 +37,19 @@
                 </a>
                 <!-- LOGO SECTION -->
                 <header class="navbar-header">
-
                     <a href="/" class="navbar-brand">
-                    <img src="logo.png" alt="" /></a>
+                        <img src="www/logo.png" alt="" /></a>
                 </header>
                 <!-- END LOGO SECTION -->
                 <ul class="nav navbar-top-links navbar-right">
-                                           
-
                     <!--ADMIN SETTINGS SECTIONS -->
-
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
                         </a>
-
                         <ul class="dropdown-menu dropdown-user">
-                          
-                          <li><a href="esp-admin"><i class="icon-user"></i> Usuario </a>
+                            <li>
+                                <a href="esp-admin"><i class="icon-user"></i> Usuario </a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="esp-logout"><i class="icon-signout"></i> Salir </a>
@@ -70,80 +65,56 @@
         <div id="left">
             <div class="media user-media well-small">
                 <a class="user-link" href="/">
-                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="esp32.gif" />
+                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="www/esp32.png" />
                 </a>
                 <br />
                 <div class="media-body">
-                    <h5 class="media-heading"> Esp32</h5>
+                    <h5 class="media-heading"> #platform#</h5>
                     <ul class="list-unstyled user-info">
-                       
                         <li>
-                             <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
-                           
+                            <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
                         </li>
-                       
                     </ul>
                 </div>
                 <br />
             </div>
-
             <ul id="menu" class="collapse">
-            <!-- PARA DARLE EL FONDE DE SOMBRA CUANDO PASAMOS CON EL PUNTERO DEL ,MOUSE <li class="panel active"> CON LA PALABRA active -->
-                <li class="panel ">
-                    <a href="/" >
-                        <i class="icon-th-large"></i> Dashboard
-	                          
-                    </a>                   
-                </li>
                 <li class="panel active">
-                    <!--Inician los direccionamientos <a href="esp-wifi" > -->
-                    <a href="esp-wifi">
-                        <i class="icon-signal"></i> WIFI 
-	                          
-                    </a>                   
+                    <a href="/">
+                        <i class="icon-th-large"></i> Dashboard
+                    </a>
                 </li>
                 <li class="panel">
-                    <a href="esp-mqtt" >
-                        <i class="icon-sitemap"></i> MQTT
-	                          
-                    </a>                   
+                    <a href="esp-wifi">
+                        <i class="icon-signal"></i> WIFI
+                    </a>
                 </li>
-            
+                <li class="panel">
+                    <a href="esp-mqtt">
+                        <i class="icon-sitemap"></i> MQTT
+                    </a>
+                </li>
                 <li class="panel ">
                     <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-cog"> </i> Administrar    
-	   
+                        <i class=" icon-cog"> </i> Administrar
                         <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                        </span>
-                       &nbsp; <span class="label label-default">4</span>&nbsp;
+                          <i class="icon-angle-left"></i>       
                     </a>
                     <ul class="collapse" id="component-nav">
-                       
                         <li class=""><a href="esp-device"><i class="icon-angle-right"></i> Dispositivo </a></li>
-                         <li class=""><a href="esp-restore"><i class="icon-angle-right"></i> Ajustes Predeterminados de Fábrica </a></li>
+                        <li class=""><a href="esp-restore"><i class="icon-angle-right"></i> Ajustes predeterminados de fábrica </a></li>
                         <li class=""><a href="esp-restart"><i class="icon-angle-right"></i> Reinicio </a></li>
                         <li class=""><a href="esp-admin"><i class="icon-angle-right"></i> Contraseña </a></li>
-                       
                     </ul>
                 </li>
-                <li class="panel ">
-                   
+                <li class="panel">
+                    <a href="esp-logout">
+                        <i class="icon-signout"></i> Salir
+                    </a>
                 </li>
-            </li>
-            <li class="panel">
-                <a href="esp-logout" >
-                    <i class="icon-signout"></i> Salir
-                          
-                </a>                   
-            </li>
-           
-        
             </ul>
-
         </div>
         <!--END MENU SECTION -->
-
         <!--PAGE CONTENT -->
         <div id="content">
             <div class="inner" style="min-height:1200px;">
@@ -152,152 +123,135 @@
                         <h2>Estado del Dispositivo</h2>
                     </div>
                 </div>
-                <hr>
-                 <!--BLOCK SECTION -->
-                 <div class="row">
-                    <div class="col-lg-12">
-                        <div style="text-align: center;">
-
-                            <a class="quick-btn" href="#">
-                                <i class="icon-info icon-2x"></i>
-                                <span> Dispositivo</span>
-                                <span class="label label-danger">Esp32</span>
-                            </a>
-
-                            <a class="quick-btn" href="#">
-                                <i class="icon-signal icon-2x"></i>
-                                <span>WIFI RSSI</span>
-                                <span class="label label-success">-66dbm</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-sitemap icon-2x"></i>
-                                <span>MQTT</span>
-                                <span class="label label-warning">Offline</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-fire icon-2x"></i>
-                                <span>Temp.CPU</span>
-                                <span class="label btn-metis-2">20.2</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-retweet icon-2x"></i>
-                                <span>Reinicios</span>
-                                <span class="label btn-metis-4">10</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-time icon-2x"></i>
-                                <span>Tiempo Activo</span>
-                                <span class="label label-default">1:10:10:05</span>
-                           </a>
-                      </div>
-                    </div>
-                </div>
-                <br>
-                <!--END BLOCK SECTION -->
-              
-                  <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <i class="icon-info-sign"></i> Información General
-                            <span class="badge pull-right">adminesp32 / 981C5210CE0C3D</span>
-                        </div>
-                        <div class="panel-body">
-                            <h3>Inalambrico</h3>
-                            <div><span class="label label-primary">Estado WIFI:</span><span id="WFEstatus" class="label label-success">CONECTADO</span></div> 
-                            <div><span class="label label-primary">Red WIFI </span> <span> MI RED WIFI</span></div>
-                            <div><span class="label label-primary">IP WIFI:</span> <span>192.168.0.50</span></div>
-                            <div><span class="label label-primary">MAC WIFI:</span> <span>10:52:1C:9B:3D:0C</span></div>
-                            <div><span class="label label-primary">RSSI WIFI:</span><span id="WFDBM">-66 dbm</span></div>
-                            <div><span class="label label-primary">RSSI WIFI:</span><span id="WFPRC">-68 %</span></div>
-
-                            <hr>
-                            <h3>Broker MQTT</h3>
-                            <div><span class="label label-primary">Estado MQTT:</span><span id="WFEstatus" class="label label-success">CONECTADO</span></div> 
-                            <div><span class="label label-primary">Servidor MQTT</span> <span id="MQTTBroker">Electrónica</span></div>
-                            <div><span class="label label-primary">Usuario MQTT:</span> <span>OYR</span></div>
-                            <div><span class="label label-primary">Cliente ID MQTT</span> <span>ESP329B1C52100C3D</span></div>
-
-                            <hr>
-                            <h3>Información General</h3>
-                            <div><span class="label label-primary">Identificación:</span><span id="id">adminesp32</span></div>
-                            <div><span class="label label-primary">Número de Serie:</span> <span>9B1C5210CE0C3D</span></div>
-                            <div><span class="label label-primary">mDNS Url:</span> <span>http://adminesp32.local/</span></div>
-                            <div><span class="label label-primary">Dirección IP del Cliente:</span> <span>192.168.0.140</span></div>
-                            <div><span class="label label-primary">Navegador del Cliente</span> <span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36</span></div>
-                            <div><span class="label label-primary">Versión del Firmware</span> <span>v1.1.0a-Build-20211117</span></div>
-                            <div><span class="label label-primary">SDK</span> <span>v3.3.5-1-g85c43024c</span></div>
-                            <div><span class="label label-primary">Versión del Hardware</span> <span>ADMINESP32 v1 000000000</span></div>
-                            <div><span class="label label-primary">CPU FREQ</span> <span>240 MHz</span></div>
-                            <div><span class="label label-primary">RAM SIZE</span> <span>341.22 KB</span></div>
-                            <div><span class="label label-primary">FLASH SIZE</span> <span>4.00 MB</span></div>
-                            <div><span class="label label-primary">Fabricante</span> <span>ELECTRONICA SIN NOMBRE AÚN</span></div>
-                            <div><span class="label label-primary">Tiempo de Actividad del Sistema</span> <span>341.22 KB</span></div>
-                            <div><span class="label label-primary">Cantidad de Reinicios</span> <span>9</span></div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
+            <hr>
+            <!--BLOCK SECTION -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div style="text-align: center;">
+                        <a class="quick-btn" href="#">
+                            <i class="icon-info-sign icon-2x"></i>
+                            <span> Dispositivo</span>
+                        <span class="label label-danger">#platform#</span>
+                    </a>
+                    <a class="quick-btn" href="#">
+                        <i class="icon-signal icon-2x"></i>
+                        <span>WIFI RSSI</span>
+                        <span class="label label-success">#wifi_dbm# dBm</span>
+                    </a>
+                    <a class="quick-btn" href="#">
+                        <i class="icon-sitemap icon-2x"></i>
+                        <span>MQTT</span>
+                        <span>#mqtt_on#</span>
+                    </a>
+                    <a class="quick-btn" href="#">
+                        <i class=" icon-fire icon-2x"></i>
+                        <span>Temp. CPU</span>
+                        <span class="label btn-metis-2">#temp_cpu# °C</span>
+                    </a>
+                    <a class="quick-btn" href="#">
+                        <i class="icon-retweet icon-2x"></i>
+                        <span>Reinicios</span>
+                        <span class="label btn-metis-4">#bootCount#</span>
+                    </a>
+                    <a class="quick-btn" href="#">
+                        <i class="icon-time icon-2x"></i>
+                        <span>Tiempo Activo</span>
+                        <span class="label label-default">#time_active#</span>
+                    </a>
         </div>
-       <!--END PAGE CONTENT -->
-          <!-- RIGHT STRIP  SECTION -->
-        <div id="right">
-           
-            <div class="well well-small">
-                <span>Señal WIFI</span><span class="pull-right"><small>60%</small></span>
-
-                <div class="progress mini">
-                    <div class="progress-bar progress-bar-info" style="width: 20%"></div>
-                </div>
-                <span>FLASH Disponible</span><span class="pull-right"><small>65%</small></span>
-
-                <div class="progress mini">
-                    <div class="progress-bar progress-bar-success" style="width: 40%"></div>
-                </div>
-                <span>RAM Disponible</span><span class="pull-right"><small>70%</small></span>
-
-                <div class="progress mini">
-                    <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
-                </div>
-                
-            </div>
-          
-           
-            <div class="well well-small">
-                <span>Relay 01</span><span class="pull-right success"><small class="label label-primary default" id="relay1status">Activo </small></span>
-                <div class="make-switch" data-on"primary" data-off="info">
-                    <input type="checkbox" id="relay1" checked="checked">
-                </div>
-                <br>
-                <br>
-                <span>Relay 02</span><span class="pull-right success"><small class="label label-primary default" id="relay2status">Activo </small></span>
-                <div class="make-switch" data-on"primary" data-off="info">
-                    <input type="checkbox" id="relay2" checked="checked">
-               </div>
-
-            </div>
-         
-      
-        </div>
-         <!-- END RIGHT STRIP  SECTION -->
-
     </div>
-
-     <!--END MAIN WRAPPER -->
-   <!-- FOOTER -->
+    </div>
+    <br>
+    <!--END BLOCK SECTION -->
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <i class="icon-info-sign"></i> Información General
+                <span class="badge pull-right">#id# / #serie#</span>
+            </div>
+            <div class="panel-body">
+                <h3>Inalámbrico</h3>
+                <div><span class="label label-primary">Estado WiFi:</span> <span>#wifi_status#</span></div>
+                <div><span class="label label-primary">SSID WiFi:</span> <span>#wifi_ssid#</span></div>
+                <div><span class="label label-primary">IP WiFi:</span> <span>#wifi_ip#</span></div>
+                <div><span class="label label-primary">MAC WiFi:</span> <span>#wifi_mac#</span></div>
+                <div><span class="label label-primary">RSSI WiFi:</span> <span>#wifi_dbm# dBm</span></div>
+                <div><span class="label label-primary">Calidad de Señal WiFi:</span> <span>#wifi_percent# %</span></div>
+                <hr>
+                <h3>Broker MQTT</h3>
+                <div><span class="label label-primary">Estado MQTT:</span> <span>#mqtt_status#</span></div>
+                <div><span class="label label-primary">Servidor MQTT:</span> <span>#mqtt_server#</span></div>
+                <div><span class="label label-primary">Usuario MQTT:</span> <span>#mqtt_user#</span></div>
+                <div><span class="label label-primary">Cliente ID MQTT:</span> <span>#mqtt_id#</span></div>
+                <hr>
+                <h3>Información General</h3>
+                <div><span class="label label-primary">Identificación:</span> <span>#id#</span></div>
+                <div><span class="label label-primary">Número de Serie:</span> <span>#serie#</span></div>
+                <div><span class="label label-primary">mDNS Url:</span> <span>http://#id#.local/</span></div>
+                <div><span class="label label-primary">Dirección IP del Cliente:</span> <span>#clientIP#</span></div>
+                <div><span class="label label-primary">Navegador del Cliente:</span> <span>#userAgent#</span></div>
+                <div><span class="label label-primary">Versión del Firmware:</span> <span>#firmware#</span></div>
+                <div><span class="label label-primary">SDK:</span> <span>#sdk#</span></div>
+                <div><span class="label label-primary">Versión del Hardware :</span> <span>#hardware#</span></div>
+                <div><span class="label label-primary">CPU FREQ:</span> <span>#cpu_freq# MHz</span></div>
+                <div><span class="label label-primary">RAM SIZE:</span> <span>#ram_size# KB</span></div>
+                <div><span class="label label-primary">FLASH SIZE:</span> <span>#flash_size# MB</span></div>
+                <div><span class="label label-primary">Fabricante:</span> <span>ELECTRONIC IOT</span></div>
+                <div><span class="label label-primary">Tiempo de Actividad del Sistema:</span> <span>#time_active#</span></div>
+                <div><span class="label label-primary">Cantidad de Reinicios:</span> <span>#bootCount#</span></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!--END PAGE CONTENT -->
+    <!-- RIGHT STRIP  SECTION -->
+    <div id="right">
+        <div class="well well-small">
+            <span>Señal WIFi</span>
+            <span class="pull-right"><small>#wifi_percent#%</small></span>
+            <div class="progress mini">
+                <div class="progress-bar progress-bar-info" style="width: #wifi_percent#%"></div>
+            </div>
+            <span>FLASH Disponible</span><span class="pull-right"><small>#flash_available#%</small></span>
+            <div class="progress mini">
+                <div class="progress-bar progress-bar-success" style="width: #flash_available#%"></div>
+            </div>
+            <span>RAM Disponible</span><span class="pull-right"><small>#ram_available#%</small></span>
+            <div class="progress mini">
+                <div class="progress-bar progress-bar-warning" style="width: #ram_available#%"></div>
+            </div>
+        </div>
+        <div class="well well-small">
+            <span>Relay 01</span><span class="pull-right success"><small class="label #label1#">#Statustext1#</small></span>
+            <div class="make-switch" data-on="prymary" data-off="info">
+                <input type="checkbox" #relay1#>
+            </div>
+            <br>
+            <br>
+            <span>Relay 02</span><span class="pull-right success"><small class="label #label2#">#Statustext2#</small></span>
+            <div class="make-switch" data-on="primary" data-off="info">
+                <input type="checkbox" #relay2#>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- END RIGHT STRIP  SECTION -->
+    </div>
+    <!--END MAIN WRAPPER -->
+    <!-- FOOTER -->
     <div id="footer">
-        <p>&copy;  Electrónica &nbsp;2023 &nbsp; v1.0.0</p>
+        <p>&copy; ElectronicIOT &nbsp;2021 &nbsp;v1.0.0</p>
     </div>
     <!--END FOOTER -->
-     <!-- GLOBAL SCRIPTS, ARCHIVOS DE JAVA SCRIPT -->
-    <script src="jquery-2.0.3.min.js"></script>
-     <script src="bootstrap.min.js"></script>
-    <script src="modernizr-2.6.2.min.js"></script>
-    <script src="bootstrap-switch.min.js"></script>
-    <script src="scripts.js"></script>
+    <!-- GLOBAL SCRIPTS -->
+    <script src="www/jquery-2.0.3.min.js"></script>
+    <script src="www/bootstrap.min.js"></script>
+    <script src="www/modernizr-2.6.2.min.js"></script>
+    <script src="www/bootstrap-switch.min.js"></script>
+    <script src="www/scripts.js"></script>
     <!-- END GLOBAL SCRIPTS -->
 </body>
-    <!-- END BODY-->
-    
+<!-- END BODY-->
+
 </html>

@@ -1,3 +1,11 @@
+/*
+ * -------------------------------------------------------------------
+ * AdminESP - ElectronicIOT 2021
+ * Sitio WEB: https://electroniciot.com
+ * Correo: info@electroniciot.com
+ * -------------------------------------------------------------------
+ */
+
 #include <WiFi.h>
 #include <DNSServer.h>
 #include <ESPmDNS.h> 
@@ -5,14 +13,10 @@
 const byte DNSSERVER_PORT = 53;
 DNSServer dnsServer;
 
-
-//en caso de querer una IP diferente modificar aqui
 IPAddress apIP(192, 168, 4, 1);
 IPAddress netMsk(255, 255, 255, 0);
 
-
 int wifi_mode = WIFI_STA;
-
 
 unsigned long previousMillisWIFI = 0;
 unsigned long intervalWIFI = 30000;
@@ -32,7 +36,6 @@ void startAP(){
     dnsServer.setErrorReplyCode(DNSReplyCode::ServerFailure);
     dnsServer.start(DNSSERVER_PORT, "*", apIP);
     wifi_mode = WIFI_AP; 
-
 }
 
 // -------------------------------------------------------------------
@@ -76,8 +79,8 @@ void startClient() {
 // WiFi.mode(WIFI_AP)       - access point mode: stations can connect to the ESP32
 // WiFi.mode(WIFI_AP_STA)   - access point and a station connected to another access point
 
-void wifi_setup() {
-      WiFi.disconnect();
+void wifi_setup(){
+    WiFi.disconnect();
     // 1) Si esta activo el Modo AP
     if (ap_accessPoint){
         startAP();        
@@ -89,17 +92,15 @@ void wifi_setup() {
         wifi_mode = WIFI_STA;
         startClient();
         log("Info: WiFI Modo Estación");
-         }
-        // Iniciar hostname broadcast en modo STA o AP
+    }
+
+    // Iniciar hostname broadcast en modo STA o AP
     if (wifi_mode == WIFI_STA || wifi_mode == WIFI_AP){
         if (MDNS.begin(esp_hostname)) {
             MDNS.addService("http", "tcp", 80);
-          
         }
     } 
-
 }
-
 // -------------------------------------------------------------------
 // Loop Modo Cliente
 // -------------------------------------------------------------------
@@ -130,4 +131,5 @@ void wifiAPLoop(){
     blinkRandomSingle(50,100,WIFILED);
     dnsServer.processNextRequest();     // Captive portal DNS re-dierct
 }
+
 

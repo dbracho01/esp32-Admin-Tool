@@ -1,11 +1,26 @@
-boolean settingsReadWifi(){
-    StaticJsonDocument<500> jsonConfig;
-    File file = SPIFFS.open("/SettingWifi.json", "r");
+/* -------------------------------------------------------------------
+ * AdminESP - ElectronicIOT 2021
+ * Sitio WEB: https://electroniciot.com
+ * Correo: admim@electroniciot.com
+ * Plataforma ESP32
+ * Proyecto Admin Panel Tool para el ESP32
+ * -------------------------------------------------------------------
+*/
+
+// -------------------------------------------------------------------
+// Leer configuraciones de los Parametros WIFI
+// -------------------------------------------------------------------
+boolean settingsReadWiFi(){
+    
+    //StaticJsonDocument<768> jsonConfig;    
+    StaticJsonDocument<capacitywifi> jsonConfig;
+
+    File file = SPIFFS.open("/settingwifi.json", "r");
     if(deserializeJson(jsonConfig, file)){
-     // Si falla la lectura inicia valores por defecto
-     settingResetWiFi();
-     log("Error: Falló la lectura de la configuración WiFi, tomando valores por defecto");
-     return false;
+        // Si falla la lectura inicia valores por defecto
+        settingResetWiFi();
+        log("Error: Falló la lectura de la configuración WiFi, tomando valores por defecto");
+        return false;
     }else{
         /* ------------------- GENERAL -------------------- */
         strlcpy(id, jsonConfig["id"], sizeof(id)); 
@@ -29,17 +44,15 @@ boolean settingsReadWifi(){
         file.close();
         log("Info: Lectura configuración WiFi correcta");
         return true;
-
-
     }
-    
 }
 // -------------------------------------------------------------------
 // Leer configuraciones de los Parametros MQTT
 // -------------------------------------------------------------------
 boolean settingsReadMQTT(){
-    // Lee la configuración MQTT
-    StaticJsonDocument<500> jsonConfig;
+
+    // StaticJsonDocument<384> jsonConfig;
+    StaticJsonDocument<capacitymqtt> jsonConfig;
 
     File file = SPIFFS.open(F("/settingmqtt.json"), "r");
     if (deserializeJson(jsonConfig, file)){
@@ -61,12 +74,14 @@ boolean settingsReadMQTT(){
         return true;
     }
 }
-//----------------------------------------------
-//Leer estados de los relays
-//----------------------------------------------
-
+// -------------------------------------------------------------------
+// Leer estados de los Relays
+// -------------------------------------------------------------------
 boolean settingsReadRelays(){
-    StaticJsonDocument<200> jsonConfig;
+
+    //StaticJsonDocument<96> jsonConfig;
+    StaticJsonDocument<capacityrelays> jsonConfig;
+    
     File file = SPIFFS.open("/settingrelays.json", "r");
     if (deserializeJson(jsonConfig, file)){
         // Si falla la lectura inicia valores por defecto
@@ -80,7 +95,25 @@ boolean settingsReadRelays(){
         log("Info: Lectura de los Relay correcta");
         return true;
     } 
-
-    
-
+}
+// -------------------------------------------------------------------
+// Leer www_username/password
+// -------------------------------------------------------------------
+boolean settingsReadAdmin(){
+    // Lee el Usuario y Contraseña
+    StaticJsonDocument<capacityadmin> jsonConfig;
+    File file = SPIFFS.open("/settingadmin.json", "r");
+    if (deserializeJson(jsonConfig, file)){
+        // Si falla la lectura inicia valores por defecto
+        settingsResetAdmin();
+        log("Error: Falló la lectura del Usuario y Contraseña, tomando valores por defecto");
+        return false;
+    }else{
+        /* ---------- Usuario y Contraseña ------------ */
+        strlcpy(www_username, jsonConfig["www_username"], sizeof(www_username));
+        strlcpy(www_password, jsonConfig["www_password"], sizeof(www_password));
+        file.close();
+        log("Info: Lectura del Usuario y Contraseña WWW correcta");
+        return true;
+    }
 }

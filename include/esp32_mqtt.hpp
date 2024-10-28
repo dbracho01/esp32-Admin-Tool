@@ -1,3 +1,11 @@
+/* -------------------------------------------------------------------
+ * AdminESP - ElectronicIOT 2021
+ * Sitio WEB: https://electroniciot.com
+ * Correo: admim@electroniciot.com
+ * Plataforma ESP32
+ * Proyecto Admin Panel Tool para el ESP32
+ * -------------------------------------------------------------------
+*/
 
 #include <PubSubClient.h>
 
@@ -62,7 +70,6 @@ void callback(char *topic, byte *payload, unsigned int length){
 
   deserializeJson(jsonDoc, mensaje);
 
-  
   if(jsonDoc["RELAY1"] == "on"){
     setOnSingle(RELAY1);
     Relay01_status = HIGH;
@@ -112,7 +119,7 @@ String Json(){
    jsonDoc["wifi_percent"] = WiFi.status() == WL_CONNECTED ? String(getRSSIasQuality(WiFi.RSSI())) : F("0"); 
    jsonDoc["temp_cpu"] = String(TempCPUValue()); 
    jsonDoc["ram_available"] = String(ESP.getFreeHeap() * 100 / ESP.getHeapSize()); 
-   jsonDoc["flash_used"] = String(round(SPIFFS.usedBytes() * 100 / SPIFFS.totalBytes()), 0);
+   jsonDoc["flash_available"] = String(round(SPIFFS.usedBytes() * 100 / SPIFFS.totalBytes()), 0);
    jsonDoc["relay1_status"] = String(Relay01_status ? "true" : "false");
    jsonDoc["relay2_status"] = String(Relay02_status ? "true" : "false");
 
@@ -141,8 +148,10 @@ void mqttLoop(){
         // if MQTT connected
         mqttclient.loop();
         // Poner en OFF el Led del MQTT
-        setOffSingle(MQTTLED);
+        // setOffSingle(MQTTLED);
       }
          
     }
 }
+
+
